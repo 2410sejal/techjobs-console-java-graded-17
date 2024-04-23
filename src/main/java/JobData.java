@@ -103,6 +103,7 @@ public class JobData {
         for(String header : allJobs.get(0).keySet()){
             headerArray[i] = header;
             i++;
+
         }
 
         for (HashMap<String, String> row : allJobs) {

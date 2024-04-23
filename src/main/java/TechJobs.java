@@ -77,7 +77,7 @@ public class TechJobs {
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
-        // Put the choices in an ordered structure so we can
+        // Put the choices in an ordered structure ,so we can
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
@@ -91,7 +91,7 @@ public class TechJobs {
 
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
-                System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
+                System.out.println( j + " - " + choices.get(choiceKeys[j]));
             }
 
             if (in.hasNextInt()) {
@@ -118,8 +118,28 @@ public class TechJobs {
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+    private static void printJobs(ArrayList<HashMap<String, String>> jobs) {
 
-        System.out.println("printJobs is not implemented yet");
+//        System.out.println("printJobs is not implemented yet");
+        if(null == jobs || jobs.isEmpty()){
+            System.out.print("No Results");
+            return;
+        } else {
+            String[] headerArray = new String[jobs.get(0).size()];
+            int i = 0;
+            for(String header : jobs.get(0).keySet()){
+                headerArray[i] = header;
+                i++;
+            }
+            for (HashMap<String, String> row : jobs) {
+                System.out.println();
+                System.out.println("*****");
+                for(String header : headerArray){
+                    String aValue = row.get(header);
+                    System.out.println(header+": "+aValue);
+                }
+                System.out.println("*****");
+            }
+        }
     }
 }
